@@ -1,3 +1,4 @@
+import numpy as np
 
 def function(a,x):              
     return np.exp((-(x[0]-a[0])**2-(x[1]-a[1])**2)/2)
