@@ -21,15 +21,8 @@ def Gauss(f,a0,x,y,err):
     r=0                             
     while e>err:                     
         a1=a
-        print('a','   ',a)
-        #print(r)
         r=f(a1,x)-y
         j=J(f,a1,x)
-        print('hess','   ',j.T@j)
-        print('eig','   ',np.linalg.eigvals(j.T@j))
-        print('error','   ',e)
-        print('')
-        print('')
         a1=a1-(np.linalg.inv(j.T@j)@j.T@r)
         e=np.linalg.norm(a1-a)
         a=a1
@@ -64,7 +57,6 @@ def multinewt():
         xs.append(xi)
         errs.append(err)
         zs.append(f(xi))
-        print(i,'   ',p,'   ',xi,'   ',err)
     zs=np.array(zs)
     xs=np.array(xs).reshape(len(xs),2)  
 
